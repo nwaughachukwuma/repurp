@@ -35,14 +35,14 @@ pip install repurp
 ### From Source
 
 ```bash
-git clone https://github.com/veedoai/repurp.git
+git clone https://github.com/nwaughachukwuma/repurp.git
 cd repurp
 pip install .
 ```
 
 ### As Executable
 
-Download the latest release for your platform from the [releases page](https://github.com/veedoai/repurp/releases).
+Download the latest release for your platform from the [releases page](https://github.com/nwaughachukwuma/repurp/releases).
 
 ## 🚀 Usage
 
@@ -66,6 +66,7 @@ instagram_specs = video.get_platform_spec("instagram")
 ```
 
 The library provides type-safe methods with platform-specific optimizations:
+
 - Supports major social platforms (Instagram, TikTok, Twitter, LinkedIn)
 - Supports Broadcast formats (Standard, Closeup)
 - Automatically creates an 'output' directory next to your input video

@@ -38,9 +38,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/veedoai/repurp"
-Repository = "https://github.com/veedoai/repurp"
-Issues = "https://github.com/veedoai/repurp/issues"
+Homepage = "https://github.com/nwaughachukwuma/repurp"
+Repository = "https://github.com/nwaughachukwuma/repurp"
+Issues = "https://github.com/nwaughachukwuma/repurp/issues"
 
 [tool.hatch.build]
 include = [

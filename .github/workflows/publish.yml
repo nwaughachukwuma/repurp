@@ -12,9 +12,6 @@ on:
     tags:
       - "v*"
 
-# env:
-#   GITHUB_OUTPUT: ${{ runner.workspace }}/output.txt
-
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -81,8 +78,8 @@ jobs:
           verify-metadata: false
           verbose: true
           print-hash: true
-          # user: __token__
-          # password: ${{ secrets.PYPI_API_TOKEN }}
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
 
   create-release:
     needs: build-and-publish
