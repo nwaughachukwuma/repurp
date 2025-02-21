@@ -46,7 +46,33 @@ Download the latest release for your platform from the [releases page](https://g
 
 ## 🚀 Usage
 
-### Basic Usage
+### As a Library
+
+```python
+from repurp import VideoRepurp
+
+# Initialize with input video
+video = VideoRepurp("input_video.mp4")
+
+# Process for a specific platform and style
+instagram_story = video.repurp("instagram", "story")
+twitter_post = video.repurp("twitter", "landscape")
+
+# Batch process for multiple platforms
+outputs = video.batch_repurp(batch_platforms=["instagram", "tiktok", "twitter"])
+
+# Get platform specifications
+instagram_specs = video.get_platform_spec("instagram")
+```
+
+The library provides type-safe methods with platform-specific optimizations:
+- Supports major social platforms (Instagram, TikTok, Twitter, LinkedIn)
+- Supports Broadcast formats (Standard, Closeup)
+- Automatically creates an 'output' directory next to your input video
+- Returns paths to processed video files
+- Handles proper video scaling, padding, and encoding for each platform
+
+### CLI Basic Usage
 
 ```bash
 # Repurpose a video for Instagram Story
