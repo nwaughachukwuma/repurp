@@ -53,7 +53,7 @@ jobs:
     if: (github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')) || github.event_name == 'workflow_dispatch'
     environment:
       name: pypi
-      url: https://pypi.org/p/async-web-search
+      url: https://pypi.org/p/repurp
     permissions:
       id-token: write # Required for PyPI trusted publishing
 
