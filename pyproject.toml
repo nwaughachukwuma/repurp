@@ -34,7 +34,9 @@ dev = [
     "pre-commit",
     "ruff",
     "mypy",
-    "pyinstaller>=6.0.0"
+    "pyinstaller>=6.0.0",
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0"
 ]
 
 [project.urls]
@@ -65,3 +67,26 @@ max-line-length = 120
 
 [tool.mypy]
 ignore_missing_imports = false
+
+[tool.pytest.ini_options]
+norecursedirs = ".* venv src site-packages"
+addopts = "-v -s --durations=10 --strict-markers --cov=repurp --cov-report=html --cov-report=xml --cov-report=term-missing"
+testpaths = ["tests"]
+pythonpath = ["src"]
+python_files = ["test_*.py"]
+filterwarnings = ["ignore::DeprecationWarning:pkg_resources.*", "ignore::DeprecationWarning:urllib3.*"]
+
+[tool.coverage.run]
+branch = true
+source = ["repurp"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if __name__ == .__main__.:",
+    "raise NotImplementedError",
+    "if TYPE_CHECKING:",
+    "pass",
+]
+show_missing = true
