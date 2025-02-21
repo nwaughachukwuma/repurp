@@ -1,0 +1,4 @@
+## linter, formatter and type checker
+pre-commit
+ruff
+mypy
