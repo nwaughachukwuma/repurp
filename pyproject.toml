@@ -1,35 +1,33 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "packaging<23.2"]
 build-backend = "hatchling.build"
 
 [project]
 name = "repurp"
 version = "0.1.0"
-description = "Repurpose videos for various social media platforms with optimized settings"
-readme = "README.md"
 requires-python = ">=3.8"
+description = "Repurpose videos for various social media platforms with optimized settings"
+
+readme = "README.md"
 license = "MIT"
 keywords = ["video", "social media", "ffmpeg", "instagram", "tiktok", "twitter"]
 authors = [
     { name = "Chukwuma Nwaugha", email = "chuks@veedo.ai" }
 ]
 classifiers = [
-    "Development Status :: 4 - Beta",
-    "Environment :: Console",
-    "Intended Audience :: End Users/Desktop",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Topic :: Multimedia :: Video",
-    "Topic :: Utilities",
+    "License :: OSI Approved :: MIT License",  
+    "Operating System :: OS Independent",
+    "Environment :: Console",
+    "Environment :: GPU",
+    "Environment :: Web Environment",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Multimedia :: Video"
 ]
 dependencies = []
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
     "pre-commit",
     "ruff",
@@ -43,6 +41,19 @@ dev = [
 Homepage = "https://github.com/veedoai/repurp"
 Repository = "https://github.com/veedoai/repurp"
 Issues = "https://github.com/veedoai/repurp/issues"
+
+[tool.hatch.build]
+include = [
+    "src/**/*.py",
+    "LICENSE",
+    "README.md"
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/repurp"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/repurp"]
 
 [project.scripts]
 repurp = "repurp.use_cli:main"
