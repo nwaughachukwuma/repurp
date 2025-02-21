@@ -9,7 +9,7 @@ requires-python = ">=3.8"
 description = "Repurpose videos for various social media platforms with optimized settings"
 
 readme = "README.md"
-license = "MIT"
+license = { text = "MIT" }
 keywords = ["video", "social media", "ffmpeg", "instagram", "tiktok", "twitter"]
 authors = [
     { name = "Chukwuma Nwaugha", email = "chuks@veedo.ai" }
