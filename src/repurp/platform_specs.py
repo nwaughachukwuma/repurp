@@ -1,5 +1,6 @@
+from __future__ import annotations  # Enables future type hints in Python 3.8+
 from dataclasses import dataclass
-from typing import Dict, List, Literal, Tuple
+from typing import Dict, List, Literal, Tuple, Optional
 
 Platform = Literal["instagram", "tiktok", "twitter", "linkedin", "broadcast"]
 
@@ -28,14 +29,14 @@ Dimensions = Tuple[int, int]
 @dataclass
 class PlatformSpec:
     bitrate: str
-    max_duration: int | None = None
-    story: Dimensions | None = None
-    post: Dimensions | None = None
-    reel: Dimensions | None = None
-    standard: Dimensions | None = None
-    landscape: Dimensions | None = None
-    square: Dimensions | None = None
-    closeup: Dimensions | None = None
+    max_duration: Optional[int] = None
+    story: Optional[Dimensions] = None
+    post: Optional[Dimensions] = None
+    reel: Optional[Dimensions] = None
+    standard: Optional[Dimensions] = None
+    landscape: Optional[Dimensions] = None
+    square: Optional[Dimensions] = None
+    closeup: Optional[Dimensions] = None
 
 
 platform_specs: Dict[Platform, PlatformSpec] = {
