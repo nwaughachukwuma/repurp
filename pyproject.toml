@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "repurp"
-version = "0.1.1"
+version = "0.1.2"
 requires-python = ">=3.8"
 description = "Repurpose videos for various social media platforms with optimized settings"
 
