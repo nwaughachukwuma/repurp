@@ -1,6 +1,6 @@
 import os
 import subprocess
-from typing import Dict, List, Literal, overload
+from typing import Dict, List, Literal, overload, Tuple
 
 from .platform_specs import (
     BroadcastStyle,
@@ -55,7 +55,7 @@ class VideoRepurp:
             raise ValueError(f"Unsupported style {style} for platform {platform}")
 
         # Get target dimensions
-        dimensions: tuple[int, int] = getattr(platform_spec, style)
+        dimensions: Tuple[int, int] = getattr(platform_spec, style)
         width, height = dimensions
 
         # Base FFmpeg command with optimizations

@@ -10,6 +10,7 @@ from repurp.platform_specs import (
     linkedin,
     broadcast,
 )
+from typing import List
 
 
 def test_platform_specs_structure():
@@ -66,7 +67,7 @@ def test_broadcast_specs():
 
 def test_platform_type_validation():
     """Test that Platform type only accepts valid platform names"""
-    valid_platforms: list[Platform] = ["instagram", "tiktok", "twitter", "linkedin", "broadcast"]
+    valid_platforms: List[Platform] = ["instagram", "tiktok", "twitter", "linkedin", "broadcast"]
     
     # This should type check correctly
     for platform in valid_platforms:

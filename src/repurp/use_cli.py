@@ -4,13 +4,13 @@ import argparse
 import os
 import subprocess
 import sys
-from typing import Any, cast
+from typing import Any, cast, Tuple, List
 
 from .platform_specs import Platform, PlatformStyle, platform_specs, platforms
 from .repurp import VideoRepurp
 
 
-def validate_platform_style(platform: str, style: str) -> tuple[Platform, PlatformStyle]:
+def validate_platform_style(platform: str, style: str) -> Tuple[Platform, PlatformStyle]:
     """Validate platform and style arguments."""
     if platform not in platforms:
         raise ValueError(f"Invalid platform: {platform}. Choices: {', '.join(platforms)}")
@@ -38,7 +38,7 @@ def cli_video_repurp(input_file: str, platform: str, style: str) -> None:
         sys.exit(1)
 
 
-def cli_batch_repurp_video(input_file: str, batch_platforms: list[str]) -> None:
+def cli_batch_repurp_video(input_file: str, batch_platforms: List[str]) -> None:
     """Batch repurpose a video for specified platforms."""
     if not os.path.exists(input_file):
         print(f"Error: Input file '{input_file}' does not exist.")
@@ -51,7 +51,7 @@ def cli_batch_repurp_video(input_file: str, batch_platforms: list[str]) -> None:
 
     try:
         video_repurp = VideoRepurp(input_file)
-        outputs = video_repurp.batch_repurp(batch_platforms=cast(list[Platform], batch_platforms))
+        outputs = video_repurp.batch_repurp(batch_platforms=cast(List[Platform], batch_platforms))
         print("Batch repurposing complete. Output files:")
         for key, output_file in outputs.items():
             print(f"  {key}: {output_file}")
@@ -89,7 +89,7 @@ def main():
             parser.error("--platform and --style must both be provided for single-platform mode.")
         cli_video_repurp(args.input, args.platform, args.style)
     elif args.batch is not None:
-        batch_platforms = args.batch if args.batch else cast(list[str], platforms)
+        batch_platforms = args.batch if args.batch else cast(List[str], platforms)
         cli_batch_repurp_video(args.input, batch_platforms)
     else:
         parser.error("You must specify either --platform and --style, or --batch.")
