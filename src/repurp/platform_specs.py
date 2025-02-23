@@ -2,9 +2,18 @@ from __future__ import annotations  # Enables future type hints in Python 3.8+
 from dataclasses import dataclass
 from typing import Dict, List, Literal, Tuple, Optional
 
-Platform = Literal["instagram", "tiktok", "twitter", "linkedin", "broadcast"]
-
-platforms: List[Platform] = ["instagram", "tiktok", "twitter", "linkedin", "broadcast"]
+Platform = Literal["instagram", "tiktok", "twitter", "linkedin", "broadcast", "youtube", "facebook", "vimeo", "rumble"]
+platforms: List[Platform] = [
+    "instagram",
+    "tiktok",
+    "twitter",
+    "linkedin",
+    "broadcast",
+    "youtube",
+    "facebook",
+    "vimeo",
+    "rumble",
+]
 
 
 InstagramStyle = Literal["story", "post", "reel"]
@@ -12,8 +21,22 @@ TikTokStyle = Literal["standard"]
 TwitterStyle = Literal["landscape", "square"]
 LinkedInStyle = Literal["landscape", "square"]
 BroadcastStyle = Literal["standard", "closeup"]
+YouTubeStyle = Literal["standard", "shorts"]
+FacebookStyle = Literal["post", "story"]
+VimeoStyle = Literal["standard"]
+RumbleStyle = Literal["standard"]
 
-PlatformStyle = Literal[InstagramStyle, TikTokStyle, TwitterStyle, LinkedInStyle, BroadcastStyle]
+PlatformStyle = Literal[
+    InstagramStyle,
+    TikTokStyle,
+    TwitterStyle,
+    LinkedInStyle,
+    BroadcastStyle,
+    YouTubeStyle,
+    FacebookStyle,
+    VimeoStyle,
+    RumbleStyle,
+]
 
 PlatformStyles = {
     "instagram": InstagramStyle,
@@ -21,6 +44,10 @@ PlatformStyles = {
     "twitter": TwitterStyle,
     "linkedin": LinkedInStyle,
     "broadcast": BroadcastStyle,
+    "youtube": YouTubeStyle,
+    "facebook": FacebookStyle,
+    "vimeo": VimeoStyle,
+    "rumble": RumbleStyle,
 }
 
 Dimensions = Tuple[int, int]
@@ -69,19 +96,39 @@ platform_specs: Dict[Platform, PlatformSpec] = {
         closeup=(1920, 1080),
         bitrate="20M",
     ),
+    "youtube": PlatformSpec(
+        standard=(1920, 1080),
+        shorts=(1080, 1920),
+        max_duration=600,
+        bitrate="10M",
+    ),
+    "facebook": PlatformSpec(
+        post=(1080, 1080),
+        story=(1080, 1920),
+        max_duration=240,
+        bitrate="4M",
+    ),
+    "vimeo": PlatformSpec(
+        standard=(1920, 1080),
+        bitrate="5M",
+    ),
+    "rumble": PlatformSpec(
+        standard=(1920, 1080),
+        bitrate="5M",
+    ),
 }
 
 
 # Create instances of the dataclasses
 instagram = platform_specs["instagram"]
-
 tiktok = platform_specs["tiktok"]
-
 twitter = platform_specs["twitter"]
-
 linkedin = platform_specs["linkedin"]
-
 broadcast = platform_specs["broadcast"]
+youtube = platform_specs["youtube"]
+facebook = platform_specs["facebook"]
+vimeo = platform_specs["vimeo"]
+rumble = platform_specs["rumble"]
 
 # Example usage
 # Now you can access the attributes using dot notation
