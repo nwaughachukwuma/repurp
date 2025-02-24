@@ -10,7 +10,7 @@ description = "Repurpose videos for various social media platforms with optimize
 
 readme = "README.md"
 license = { text = "MIT" }
-keywords = ["video", "social media", "ffmpeg", "instagram", "tiktok", "twitter"]
+keywords = ["repurpose video", "social media videos", "ffmpeg reformat video", "instagram video", "tiktok video", "twitter video"]
 authors = [
     { name = "Chukwuma Nwaugha", email = "chuks@veedo.ai" }
 ]
