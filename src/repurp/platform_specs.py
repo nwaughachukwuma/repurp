@@ -64,6 +64,7 @@ class PlatformSpec:
     landscape: Optional[Dimensions] = None
     square: Optional[Dimensions] = None
     closeup: Optional[Dimensions] = None
+    shorts: Optional[Dimensions] = None
 
 
 platform_specs: Dict[Platform, PlatformSpec] = {

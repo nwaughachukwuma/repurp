@@ -9,6 +9,10 @@ from repurp.platform_specs import (
     twitter,
     linkedin,
     broadcast,
+    youtube,
+    facebook,
+    vimeo,
+    rumble,
 )
 from typing import List
 
@@ -65,10 +69,54 @@ def test_broadcast_specs():
     assert broadcast.story is None  # Should not have story mode
 
 
+def test_youtube_specs():
+    """Test YouTube platform specifications"""
+    assert youtube.standard == (1920, 1080)
+    assert youtube.shorts == (1080, 1920)
+    assert youtube.max_duration == 600
+    assert youtube.bitrate == "10M"
+    assert youtube.story is None  # Should not have story mode
+
+
+def test_facebook_specs():
+    """Test Facebook platform specifications"""
+    assert facebook.post == (1080, 1080)
+    assert facebook.story == (1080, 1920)
+    assert facebook.max_duration == 240
+    assert facebook.bitrate == "4M"
+    assert facebook.landscape is None  # Should not have landscape mode
+
+
+def test_vimeo_specs():
+    """Test Vimeo platform specifications"""
+    assert vimeo.standard == (1920, 1080)
+    assert vimeo.bitrate == "5M"
+    assert vimeo.max_duration is None  # Should not have duration limit
+    assert vimeo.story is None  # Should not have story mode
+
+
+def test_rumble_specs():
+    """Test Rumble platform specifications"""
+    assert rumble.standard == (1920, 1080)
+    assert rumble.bitrate == "5M"
+    assert rumble.max_duration is None  # Should not have duration limit
+    assert rumble.story is None  # Should not have story mode
+
+
 def test_platform_type_validation():
     """Test that Platform type only accepts valid platform names"""
-    valid_platforms: List[Platform] = ["instagram", "tiktok", "twitter", "linkedin", "broadcast"]
-    
+    valid_platforms: List[Platform] = [
+        "instagram",
+        "tiktok",
+        "twitter",
+        "linkedin",
+        "broadcast",
+        "youtube",
+        "facebook",
+        "vimeo",
+        "rumble",
+    ]
+
     # This should type check correctly
     for platform in valid_platforms:
         assert platform in platform_specs

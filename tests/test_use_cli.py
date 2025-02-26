@@ -104,4 +104,6 @@ def test_main_batch_all_platforms(temp_video, mock_subprocess_run):
             main()
             # Verify called with all platforms
             args = mock_batch.call_args[0]
-            assert len(args[1]) == len(["instagram", "tiktok", "twitter", "linkedin", "broadcast"])
+            assert len(args[1]) == len(
+                ["instagram", "tiktok", "twitter", "linkedin", "broadcast", "youtube", "facebook", "vimeo", "rumble"]
+            )
