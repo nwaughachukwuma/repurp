@@ -82,7 +82,7 @@ platform_specs: Dict[Platform, PlatformSpec] = {
     ),
     "twitter": PlatformSpec(
         landscape=(1920, 1080),
-        square=(720, 720),
+        square=(1080, 1080),
         max_duration=140,
         bitrate="2M",
     ),
