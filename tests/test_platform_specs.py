@@ -45,7 +45,7 @@ def test_tiktok_specs():
 def test_twitter_specs():
     """Test Twitter platform specifications"""
     assert twitter.landscape == (1920, 1080)
-    assert twitter.square == (720, 720)
+    assert twitter.square == (1080, 1080)
     assert twitter.max_duration == 140
     assert twitter.bitrate == "2M"
     assert twitter.story is None  # Should not have story mode
@@ -120,7 +120,7 @@ def test_platform_type_validation():
     # This should type check correctly
     for platform in valid_platforms:
         assert platform in platform_specs
-        
+
     # Invalid platforms should raise TypeError at runtime when used with type checking
     with pytest.raises(KeyError):
         _ = platform_specs["invalid_platform"]  # type: ignore
